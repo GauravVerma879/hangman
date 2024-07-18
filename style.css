@@ -1,0 +1,202 @@
+body {
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(114, 89, 139);
+}
+
+.container {
+    width: 850px;
+    background-color: aliceblue;
+    display: flex;
+    gap: 60px;
+    padding: 60px 40px;
+    border-radius: 10px;
+    box-shadow: 12px 12px 12px black;
+}
+
+.hangman-box img {
+    min-width: 250px;
+    height: 300px;
+    background-color: red;
+
+}
+
+.hangman-box h2 {
+    font-size: 1.45rem;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.word {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.word .letter {
+    width: 20px;
+    margin-bottom: 40px;
+    border-bottom: 3px solid black;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.word .letter.guessed {
+    border-color: transparent;
+    margin: -40px 0 35px;
+}
+
+.game-box h4 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.game-box h4 b {
+    font-size: 600;
+}
+
+.theHint {
+    opacity: 1;
+}
+
+.game-box .guessed-text b {
+    color: red;
+}
+
+
+.game-box .keyboard {
+    display: flex;
+    gap: 5px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+:where(.game-model, .keyboard) button {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    background: #5E63BA;
+    outline: none;
+
+}
+
+.keyboard button {
+    padding: 7px;
+    width: calc(100% / 9 - 5px);
+    box-shadow:  12px 1px 12px rgb(90, 85, 85);
+}
+
+:where(.game-model, .keyboard) button:hover {
+    background: #8286c9;
+    scale: 0.8;
+    /* box-shadow:  0px 0px 12px black; */
+}
+
+
+
+
+.game-model {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.635);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.game-model.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.game-model .content {
+    background-color: aliceblue;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.game-model img {
+    max-width: 130px;
+}
+
+.game-model h4 {
+    font-size: 1.5rem;
+}
+
+.game-model p {
+    font-size: 1.15rem;
+    margin: 15px 0 30px;
+    font-weight: 500;
+}
+
+.game-model p b {
+    color: #5E63BA;
+    font-weight: 600;
+}
+
+.game-model button {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 17px;
+    border: none;
+    text-transform: uppercase;
+    background: #5E63BA;
+    outline: none;
+}
+
+.game-model button:hover {
+    background: #8286c9;
+}
+
+
+
+@media (max-width: 782px) {
+    .container {
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: center;
+    }
+
+    .hangman-box img {
+        max-width: 200px;
+    }
+
+    .hangman-box h2 {
+        display: none;
+    }
+
+    .game-box .keyboard {
+        margin-top: 0;
+    }
+
+    .game-box .word .letter {
+        margin-bottom: -10px;
+    }
+}
